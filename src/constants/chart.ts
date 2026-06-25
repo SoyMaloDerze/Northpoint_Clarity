@@ -1,0 +1,13 @@
+export const CHART = {
+  HEIGHT: 320,
+
+  BAR_RADIUS: 8,
+
+  STROKE_WIDTH: 3,
+
+  INNER_RADIUS: 65,
+
+  OUTER_RADIUS: 90,
+
+  ANIMATION_DURATION: 900,
+} as const;
