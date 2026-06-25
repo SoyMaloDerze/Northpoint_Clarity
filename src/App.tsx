@@ -1,11 +1,5 @@
+import AppRouter from "./app/router/AppRouter";
 
-function App() {
-
-  return (
-    <>
-      <div className="text-red-500 font-bold">NORTHPOINT!</div>
-    </>
-  )
+export default function App() {
+  return <AppRouter />;
 }
-
-export default App

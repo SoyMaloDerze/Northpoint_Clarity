@@ -14,4 +14,8 @@ export const APP = {
   PDF_FILENAME: "northpoint-report",
 
   DATE_FORMAT: "DD MMM YYYY",
+
+  SUPPORT_EMAIL: "support@northpointclarity.com",
+
+  COPYRIGHT_YEAR: 2026,
 } as const;
