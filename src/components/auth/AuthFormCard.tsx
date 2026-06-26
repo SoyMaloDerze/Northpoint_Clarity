@@ -19,6 +19,8 @@ type AuthFormCardProps = {
   demoEmail: string;
   demoPassword: string;
 
+  onSubmit?: () => void;
+
   buttonText: string;
 };
 
@@ -28,6 +30,7 @@ export default function AuthFormCard({
   title,
   description,
   demoEmail,
+  onSubmit,
   demoPassword,
   buttonText,
 }: AuthFormCardProps) {
@@ -47,10 +50,7 @@ export default function AuthFormCard({
   ) {
     event.preventDefault();
 
-    console.log({
-      email,
-      password,
-    });
+    onSubmit?.();
   }
 
   return (
@@ -88,6 +88,7 @@ export default function AuthFormCard({
           id="email"
           label="Email Address"
           type="email"
+          required
           placeholder="Enter your email"
           value={email}
           onChange={(event) =>
@@ -99,6 +100,7 @@ export default function AuthFormCard({
           id="password"
           label="Password"
           type="password"
+          required
           placeholder="Enter your password"
           value={password}
           onChange={(event) =>

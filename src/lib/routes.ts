@@ -5,9 +5,9 @@ export const ROUTES = {
 
   TEAM_LEADER_LOGIN: "/login/team-leader",
 
-  ADMIN_DASHBOARD: "/admin",
+  ADMIN_DASHBOARD: "/admin/dashboard",
 
-  TEAM_LEADER_DASHBOARD: "/team-leader",
+  TEAM_LEADER_DASHBOARD: "/team-leader/dashboard",
 
   PARTICIPANTS: "/participants",
 

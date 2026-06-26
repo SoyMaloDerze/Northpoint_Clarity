@@ -13,6 +13,12 @@ export type GoalCategory =
   | "transport"
   | "wellbeing";
 
+export const GOAL_STATUS = {
+  NOT_STARTED: "not-started",
+  IN_PROGRESS: "in-progress",
+  COMPLETED: "completed",
+} as const;
+
 export type Goal = {
   id: ID;
 

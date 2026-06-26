@@ -11,6 +11,9 @@ import LandingPage from "../../pages/LandingPage";
 import AdminLoginPage from "../../pages/AdminLoginPage";
 import TeamLeaderLoginPage from "../../pages/TeamLeaderLoginPage";
 import NotFoundPage from "../../pages/NotFoundPage";
+import AdminDashboardPage from "../../pages/AdminDashboardPage";
+import AdminLayout from "../layouts/AdminLayout";
+
 
 export default function AppRouter() {
   return (
@@ -31,12 +34,17 @@ export default function AppRouter() {
           element={<TeamLeaderLoginPage />}
         />
 
-        {/* Temporary redirects */}
+        {/* Dashboard */}
 
         <Route
-          path={ROUTES.ADMIN_DASHBOARD}
-          element={<Navigate to={ROUTES.ADMIN_LOGIN} replace />}
-        />
+            path="/admin"
+            element={<AdminLayout />}
+        >
+            <Route
+                path="dashboard"
+                element={<AdminDashboardPage />}
+            />
+        </Route>
 
         <Route
           path={ROUTES.TEAM_LEADER_DASHBOARD}

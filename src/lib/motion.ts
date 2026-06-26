@@ -198,3 +198,53 @@ export const pulseAnimation = {
   scale: [1, 1.08, 1],
   opacity: [1, 0.85, 1],
 };
+
+export const quickActionHover = {
+  y: -8,
+  scale: 1.02,
+};
+
+export const quickActionTap = {
+  scale: 0.98,
+};
+
+
+export const modalBackdrop = {
+  initial: {
+    opacity: 0,
+  },
+
+  animate: {
+    opacity: 1,
+  },
+
+  exit: {
+    opacity: 0,
+  },
+};
+
+export const modalContainer = {
+  initial: {
+    opacity: 0,
+    scale: 0.94,
+    y: 30,
+  },
+
+  animate: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+  },
+
+  exit: {
+    opacity: 0,
+    scale: 0.96,
+    y: 20,
+  },
+};
+
+
+export const sidebarToggleRotation = {
+  duration: 0.25,
+  ease: "easeInOut",
+};
