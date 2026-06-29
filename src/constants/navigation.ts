@@ -4,7 +4,6 @@ import {
   CircleAlert,
   ClipboardList,
   Flag,
-  Home,
   LayoutDashboard,
   Settings,
   Users,
@@ -21,37 +20,37 @@ export type NavigationItem = {
 export const ADMIN_NAVIGATION: NavigationItem[] = [
   {
     label: "Dashboard",
-    path: ROUTES.ADMIN_DASHBOARD,
+    path: ROUTES.ADMIN.DASHBOARD,
     icon: LayoutDashboard,
   },
   {
     label: "Participants",
-    path: ROUTES.PARTICIPANTS,
+    path: ROUTES.ADMIN.PARTICIPANTS,
     icon: Users,
   },
   {
     label: "Reports",
-    path: ROUTES.REPORTS,
+    path: ROUTES.ADMIN.REPORTS,
     icon: ClipboardList,
   },
   {
     label: "Goals",
-    path: "/goals",
+    path: "/admin/goals",
     icon: Flag,
   },
   {
     label: "Risks",
-    path: ROUTES.RISKS,
+    path: ROUTES.ADMIN.RISKS,
     icon: CircleAlert,
   },
   {
     label: "Analytics",
-    path: "/analytics",
+    path: "/admin/analytics",
     icon: BarChart3,
   },
   {
     label: "Settings",
-    path: ROUTES.SETTINGS,
+    path: ROUTES.ADMIN.SETTINGS,
     icon: Settings,
   },
 ];
@@ -59,22 +58,22 @@ export const ADMIN_NAVIGATION: NavigationItem[] = [
 export const TEAM_LEADER_NAVIGATION: NavigationItem[] = [
   {
     label: "Dashboard",
-    path: ROUTES.TEAM_LEADER_DASHBOARD,
-    icon: Home,
+    path: ROUTES.TEAM_LEADER.DASHBOARD,
+    icon: LayoutDashboard,
   },
   {
     label: "Participants",
-    path: ROUTES.PARTICIPANTS,
+    path: ROUTES.TEAM_LEADER.PARTICIPANTS,
     icon: Users,
   },
   {
     label: "Reports",
-    path: ROUTES.REPORTS,
+    path: ROUTES.TEAM_LEADER.REPORTS,
     icon: ClipboardList,
   },
   {
     label: "Goals",
-    path: "/goals",
+    path: "/team-leader/goals",
     icon: Flag,
   },
 ];

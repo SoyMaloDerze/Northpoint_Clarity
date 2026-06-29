@@ -39,7 +39,7 @@ export default function AdminLayout() {
           <MobileSidebar
             items={ADMIN_NAVIGATION}
             role="Administrator"
-            email="admin@northpoint.com"
+            // email="admin@northpoint.com"
           />
 
           {/* Content */}

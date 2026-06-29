@@ -2,22 +2,20 @@ export const ROUTES = {
   HOME: "/",
 
   ADMIN_LOGIN: "/login/admin",
-
   TEAM_LEADER_LOGIN: "/login/team-leader",
 
-  ADMIN_DASHBOARD: "/admin/dashboard",
+  ADMIN: {
+    DASHBOARD: "/admin/dashboard",
+    PARTICIPANTS: "/admin/participants",
+    REPORTS: "/admin/reports",
+    RISKS: "/admin/risks",
+    SETTINGS: "/admin/settings",
+    SHIFTS: "/admin/shifts",
+  },
 
-  TEAM_LEADER_DASHBOARD: "/team-leader/dashboard",
-
-  PARTICIPANTS: "/participants",
-
-  PARTICIPANT_DETAILS: "/participants/:id",
-
-  SHIFTS: "/shifts",
-
-  REPORTS: "/reports",
-
-  RISKS: "/risks",
-
-  SETTINGS: "/settings",
+  TEAM_LEADER: {
+    DASHBOARD: "/team-leader/dashboard",
+    PARTICIPANTS: "/team-leader/participants",
+    REPORTS: "/team-leader/reports",
+  },
 } as const;

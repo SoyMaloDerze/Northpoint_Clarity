@@ -123,6 +123,15 @@ export const iconHover = {
   transition: springTransition,
 };
 
+export const inputHover = {
+  y: -1,
+};
+
+export const inputFocus = {
+  y: -1,
+  scale: 1.005,
+};
+
 export const modalVariants: Variants = {
   initial: {
     opacity: 0,
