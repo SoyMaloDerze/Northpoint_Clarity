@@ -28,7 +28,7 @@ export default function ParticipantsPage() {
   const [risk, setRisk] = useState("all");
 
   const [view, setView] = useState<ViewMode>("list");
-  console.log(view);
+ 
 
   const [selectedParticipant, setSelectedParticipant] = useState<Participant | null>(null);
 

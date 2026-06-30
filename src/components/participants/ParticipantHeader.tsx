@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Plus, Users } from "lucide-react";
 
 import Button from "../ui/Button";
 
@@ -18,6 +18,21 @@ export default function ParticipantHeader({
 }: ParticipantHeaderProps) {
   return (
     <section className="flex flex-col gap-6 border-b border-slate-200 pb-6 lg:flex-row lg:items-end lg:justify-between">
+      {/* Left */}
+              
+      <div className="flex items-center gap-3">
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+          <Users
+              size={24}
+              aria-hidden="true"
+          />
+          </div>
+
+          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">
+          Participants
+          </span>
+      </div>
+      
       {/* Content */}
 
       <div className="min-w-0 flex-1">
