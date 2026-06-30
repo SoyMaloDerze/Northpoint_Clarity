@@ -17,5 +17,6 @@ export const ROUTES = {
     DASHBOARD: "/team-leader/dashboard",
     PARTICIPANTS: "/team-leader/participants",
     REPORTS: "/team-leader/reports",
+    SETTINGS: "/team-leader/settings",
   },
 } as const;

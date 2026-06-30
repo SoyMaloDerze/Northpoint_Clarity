@@ -76,6 +76,11 @@ export const TEAM_LEADER_NAVIGATION: NavigationItem[] = [
     path: "/team-leader/goals",
     icon: Flag,
   },
+  {
+    label: "Settings",
+    path: ROUTES.TEAM_LEADER.SETTINGS,
+    icon: Settings,
+  },
 ];
 
 export const NAVIGATION = {

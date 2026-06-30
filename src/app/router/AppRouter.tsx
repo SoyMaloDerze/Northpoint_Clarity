@@ -15,6 +15,11 @@ import AdminDashboardPage from "../../pages/AdminDashboardPage";
 import AdminLayout from "../layouts/AdminLayout";
 import ParticipantsPage from "../../pages/ParticipantsPage";
 import ReportsPage from "../../pages/ReportsPage";
+import GoalsPage from "../../pages/GoalsPage";
+import RiskCenterPage from "../../pages/RiskCenterPage";
+import AnalyticsPage from "../../pages/AnalyticsPage";
+import SettingsPage from "../../pages/SettingsPage";
+
 
 export default function AppRouter() {
   return (
@@ -52,6 +57,22 @@ export default function AppRouter() {
             <Route
                 path="reports"
                 element={<ReportsPage />}
+            />
+            <Route
+                path="goals"
+                element={<GoalsPage />}
+            />
+            <Route
+                path="risks"
+                element={<RiskCenterPage />}
+            />
+            <Route
+                path="analytics"
+                element={<AnalyticsPage />}
+            />
+            <Route
+                path="settings"
+                element={<SettingsPage />}
             />
         </Route>
 
