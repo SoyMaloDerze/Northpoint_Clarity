@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
         demoPassword="Demo@123"
         buttonText="Enter Workspace"
         onSubmit={() =>
-          navigate(ROUTES.ADMIN_DASHBOARD)
+          navigate(ROUTES.ADMIN.DASHBOARD)
         }
       />
     </AuthLayout>
