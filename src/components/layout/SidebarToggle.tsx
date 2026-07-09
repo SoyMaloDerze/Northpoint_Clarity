@@ -8,8 +8,8 @@ import {
 import useSidebar from "../../app/contexts/useSidebar";
 
 import {
-  buttonHover,
-  buttonTap,
+  sidebarToggleHover,
+  sidebarToggleTap,
   smoothTransition,
 } from "../../lib/motion";
 
@@ -45,15 +45,15 @@ export default function SidebarToggle({
             ? "Expand sidebar"
             : "Collapse sidebar"
       }
-      whileHover={buttonHover}
-      whileTap={buttonTap}
+      whileHover={sidebarToggleHover}
+      whileTap={sidebarToggleTap}
       transition={smoothTransition}
       onClick={
         mobile
           ? toggleMobile
           : toggleCollapse
       }
-      className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-600 shadow-sm transition-all duration-300 hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-700"
+      className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-600 shadow-sm transition-colors duration-200 hover:bg-slate-100 hover:text-slate-900"
     >
       <motion.div
         animate={{
@@ -65,7 +65,9 @@ export default function SidebarToggle({
               ? 180
               : 0,
         }}
-        transition={smoothTransition}
+        transition={{
+          duration: 0.2,
+        }}
       >
         <Icon
           size={20}

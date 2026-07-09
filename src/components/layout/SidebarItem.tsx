@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 
@@ -7,7 +7,10 @@ import useSidebar from "../../app/contexts/useSidebar";
 import { cn } from "../../utils/cn";
 
 import {
-  cardHover,
+  sidebarItemHover,
+  sidebarItemTap,
+  sidebarLabelVariants,
+  sidebarIconVariants,
   smoothTransition,
 } from "../../lib/motion";
 
@@ -22,60 +25,73 @@ export default function SidebarItem({
   icon: Icon,
   to,
 }: SidebarItemProps) {
-  const { isCollapsed, closeMobile } =
-    useSidebar();
+  const {
+    isCollapsed,
+    closeMobile,
+  } = useSidebar();
 
   return (
     <motion.div
-      whileHover={cardHover}
+      layout
+      whileHover={sidebarItemHover}
+      whileTap={sidebarItemTap}
       transition={smoothTransition}
     >
       <NavLink
         to={to}
         onClick={closeMobile}
+        title={isCollapsed ? label : undefined}
         className={({ isActive }) =>
           cn(
-            "group flex py-2.5 items-center rounded-xl transition-all duration-300",
+            "group flex h-12 items-center rounded-2xl transition-colors duration-200",
             isCollapsed
-              ? "justify-center px-0"
+              ? "justify-center"
               : "gap-3 px-3",
             isActive
-              ? "bg-emerald-600 text-white shadow-lg"
+              ? "bg-emerald-600 text-white"
               : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
           )
-        }
-        title={
-          isCollapsed
-            ? label
-            : undefined
         }
       >
         {({ isActive }) => (
           <>
-            <Icon
-              size={20}
-              className={cn(
-                "shrink-0 transition-colors duration-300",
-                isActive
-                  ? "text-white"
-                  : "text-slate-500 group-hover:text-emerald-600",
-              )}
-            />
+            {/* Icon */}
 
-            <motion.span
-              initial={false}
-              animate={{
-                opacity: isCollapsed ? 0 : 1,
-                width: isCollapsed ? 0 : "auto",
-              }}
+            <motion.div
+              variants={sidebarIconVariants}
+              initial="initial"
+              animate="animate"
               transition={smoothTransition}
-              className={cn(
-                "overflow-hidden whitespace-nowrap font-medium",
-                isCollapsed && "hidden",
-              )}
+              className="flex h-10 w-10 shrink-0 items-center justify-center"
             >
-              {label}
-            </motion.span>
+              <Icon
+                size={20}
+                aria-hidden="true"
+                className={cn(
+                  "transition-colors duration-200",
+                  isActive
+                    ? "text-white"
+                    : "text-slate-500 group-hover:text-emerald-600",
+                )}
+              />
+            </motion.div>
+
+            {/* Label */}
+
+            <AnimatePresence initial={false}>
+              {!isCollapsed && (
+                <motion.span
+                  variants={sidebarLabelVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={smoothTransition}
+                  className="whitespace-nowrap text-sm font-medium"
+                >
+                  {label}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </>
         )}
       </NavLink>

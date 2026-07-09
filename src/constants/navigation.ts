@@ -1,11 +1,13 @@
 import type { LucideIcon } from "lucide-react";
 import {
   BarChart3,
+  CalendarDays,
   CircleAlert,
-  ClipboardList,
+  ClipboardCheck,
   Flag,
   LayoutDashboard,
   Settings,
+  UserRound,
   Users,
 } from "lucide-react";
 
@@ -31,11 +33,11 @@ export const ADMIN_NAVIGATION: NavigationItem[] = [
   {
     label: "Reports",
     path: ROUTES.ADMIN.REPORTS,
-    icon: ClipboardList,
+    icon: ClipboardCheck,
   },
   {
     label: "Goals",
-    path: "/admin/goals",
+    path: ROUTES.ADMIN.GOALS,
     icon: Flag,
   },
   {
@@ -45,7 +47,7 @@ export const ADMIN_NAVIGATION: NavigationItem[] = [
   },
   {
     label: "Analytics",
-    path: "/admin/analytics",
+    path: ROUTES.ADMIN.ANALYTICS,
     icon: BarChart3,
   },
   {
@@ -67,19 +69,19 @@ export const TEAM_LEADER_NAVIGATION: NavigationItem[] = [
     icon: Users,
   },
   {
-    label: "Reports",
-    path: ROUTES.TEAM_LEADER.REPORTS,
-    icon: ClipboardList,
+    label: "My Day",
+    path: ROUTES.TEAM_LEADER.WORKSPACE,
+    icon: ClipboardCheck,
   },
   {
-    label: "Goals",
-    path: "/team-leader/goals",
-    icon: Flag,
+    label: "Schedule",
+    path: ROUTES.TEAM_LEADER.SCHEDULE,
+    icon: CalendarDays,
   },
   {
-    label: "Settings",
-    path: ROUTES.TEAM_LEADER.SETTINGS,
-    icon: Settings,
+    label: "Profile",
+    path: ROUTES.TEAM_LEADER.PROFILE,
+    icon: UserRound,
   },
 ];
 

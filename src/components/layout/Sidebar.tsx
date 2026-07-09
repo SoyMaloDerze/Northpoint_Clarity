@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 
 import useSidebar from "../../app/contexts/useSidebar";
@@ -17,13 +17,11 @@ import {
 type SidebarProps = {
   items: NavigationItem[];
   role: "Administrator" | "Team Leader";
-  email: string;
 };
 
 export default function Sidebar({
   items,
   role,
-  
 }: SidebarProps) {
   const { isCollapsed } = useSidebar();
 
@@ -31,88 +29,104 @@ export default function Sidebar({
     <motion.aside
       layout
       animate={{
-        width: isCollapsed
-          ? 96
-          : 280,
+        width: isCollapsed ? 96 : 280,
       }}
       transition={smoothTransition}
-      className="sticky top-0 hidden h-screen shrink-0 overflow-hidden border-r border-slate-200 bg-white lg:flex"
+      className="hidden h-full shrink-0 border-r border-slate-200 bg-white lg:flex"
     >
-      <div className="flex w-full flex-col px-4 py-6">
+      <div className="flex h-full w-full flex-col px-4 py-5">
         {/* Header */}
 
-        <div
-          className={`flex items-center ${
+        <motion.div
+          layout
+          className={`flex items-start ${
             isCollapsed
-              ? "justify-center"
+              ? "flex-col gap-5"
               : "justify-between"
           }`}
         >
           <div
             className={`flex items-center ${
               isCollapsed
-                ? ""
+                ? "w-full flex-col justify-center gap-4"
                 : "gap-3"
             }`}
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg">
+            <motion.div
+              layout
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-100"
+            >
               <ShieldCheck
-                size={26}
+                size={24}
                 aria-hidden="true"
               />
-            </div>
+            </motion.div>
 
-            {!isCollapsed && (
-              <motion.div
-                initial={false}
-                animate={{
-                  opacity: 1,
-                }}
-                exit={{
-                  opacity: 0,
-                }}
-                transition={smoothTransition}
-              >
-                <h1 className="text-lg font-bold text-slate-900">
-                  {APP.NAME}
-                </h1>
+            <AnimatePresence mode="wait">
+              {!isCollapsed && (
+                <motion.div
+                  key="workspace"
+                  initial={{
+                    opacity: 0,
+                    x: -10,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: -10,
+                  }}
+                  transition={smoothTransition}
+                >
+                  <h1 className="text-lg font-bold tracking-tight text-slate-900">
+                    {APP.NAME}
+                  </h1>
 
-                <p className="text-sm text-slate-500">
-                  {role}
-                </p>
-              </motion.div>
-            )}
+                  <p className="mt-0.5 text-sm font-medium text-slate-500">
+                    {role}
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
-          {!isCollapsed && (
-            <SidebarToggle />
-          )}
-        </div>
+          {!isCollapsed && <SidebarToggle />}
+        </motion.div>
 
-        {/* Collapsed Toggle */}
+        {/* Collapse Toggle */}
 
         {isCollapsed && (
-          <div className="mt-6 flex justify-center">
+          <motion.div
+            layout
+            className="mt-2 flex justify-center"
+          >
             <SidebarToggle />
-          </div>
+          </motion.div>
         )}
 
         {/* Navigation */}
 
-        <nav className="mt-6 flex-1 space-y-1">
+        <motion.nav
+          layout
+          className="mt-8 flex-1 space-y-1.5"
+        >
           {items.map((item) => (
             <SidebarItem
-              key={item.label}
+              key={item.path}
               label={item.label}
               icon={item.icon}
               to={item.path}
             />
           ))}
-        </nav>
+        </motion.nav>
 
         {/* Footer */}
 
-        <SidebarFooter />
+        <motion.div layout>
+          <SidebarFooter />
+        </motion.div>
       </div>
     </motion.aside>
   );

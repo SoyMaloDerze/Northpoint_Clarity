@@ -8,15 +8,19 @@ export const ROUTES = {
     DASHBOARD: "/admin/dashboard",
     PARTICIPANTS: "/admin/participants",
     REPORTS: "/admin/reports",
+    GOALS: "/admin/goals",
     RISKS: "/admin/risks",
+    ANALYTICS: "/admin/analytics",
     SETTINGS: "/admin/settings",
-    SHIFTS: "/admin/shifts",
   },
 
   TEAM_LEADER: {
     DASHBOARD: "/team-leader/dashboard",
     PARTICIPANTS: "/team-leader/participants",
-    REPORTS: "/team-leader/reports",
+    WORKSPACE: "/team-leader/workspace",
+    SCHEDULE: "/team-leader/schedule",
+    PROFILE: "/team-leader/profile",
+    NOTIFICATIONS: "/team-leader/notifications",
     SETTINGS: "/team-leader/settings",
   },
 } as const;

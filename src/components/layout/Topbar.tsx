@@ -1,6 +1,6 @@
 import {
   Bell,
-  ChevronDown,
+  ChevronRight,
 } from "lucide-react";
 
 import Avatar from "../ui/Avatar";
@@ -20,31 +20,35 @@ export default function TopBar({
   notificationCount = 0,
 }: TopBarProps) {
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
       <div className="flex h-18 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Left */}
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <div className="lg:hidden">
             <SidebarToggle mobile />
           </div>
 
           <div className="hidden lg:block">
-            <p className="text-sm font-medium text-slate-500">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-slate-400">
               Northpoint Clarity
             </p>
+
+            <h2 className="mt-1 text-lg font-semibold tracking-tight text-slate-900">
+              {role}
+            </h2>
           </div>
         </div>
 
         {/* Right */}
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Notifications */}
 
           <button
             type="button"
             title="Notifications"
-            className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white transition-all duration-300 hover:border-emerald-300 hover:bg-emerald-50"
+            className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white transition-colors duration-200 hover:bg-slate-100"
           >
             <Bell
               size={19}
@@ -65,14 +69,14 @@ export default function TopBar({
 
           {/* Divider */}
 
-          <div className="hidden h-8 w-px bg-slate-200 sm:block" />
+          <div className="hidden h-8 w-px bg-slate-200 lg:block" />
 
           {/* Profile */}
 
           <button
             type="button"
-            title={`${role} menu`}
-            className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white p-1.5 pr-3 transition-all duration-300 hover:border-emerald-300 hover:bg-emerald-50"
+            title={`${role} Profile`}
+            className="flex items-center gap-3 rounded-2xl p-1.5 transition-colors duration-200 hover:bg-slate-100"
           >
             <Avatar
               name={name}
@@ -89,9 +93,9 @@ export default function TopBar({
               </p>
             </div>
 
-            <ChevronDown
+            <ChevronRight
               size={16}
-              className="hidden xl:block text-slate-500"
+              className="hidden xl:block text-slate-400"
               aria-hidden="true"
             />
           </button>

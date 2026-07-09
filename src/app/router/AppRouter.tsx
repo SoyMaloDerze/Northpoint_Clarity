@@ -1,6 +1,6 @@
 import {
   BrowserRouter,
-  Navigate,
+  // Navigate,
   Route,
   Routes,
 } from "react-router-dom";
@@ -11,8 +11,13 @@ import LandingPage from "../../pages/LandingPage";
 import AdminLoginPage from "../../pages/AdminLoginPage";
 import TeamLeaderLoginPage from "../../pages/TeamLeaderLoginPage";
 import NotFoundPage from "../../pages/NotFoundPage";
+
 import AdminDashboardPage from "../../pages/AdminDashboardPage";
+
 import AdminLayout from "../layouts/AdminLayout";
+import TeamLeaderLayout from "../layouts/TeamLeaderLayout";
+
+// Admin Pages
 import ParticipantsPage from "../../pages/ParticipantsPage";
 import ReportsPage from "../../pages/ReportsPage";
 import GoalsPage from "../../pages/GoalsPage";
@@ -20,6 +25,13 @@ import RiskCenterPage from "../../pages/RiskCenterPage";
 import AnalyticsPage from "../../pages/AnalyticsPage";
 import SettingsPage from "../../pages/SettingsPage";
 
+// Team Leader Pages
+import TeamLeaderDashboardPage from "../../pages/teamLeader/TeamLeaderDashboardPage";
+import NotificationsPage from "../../pages/teamLeader/NotificationsPage";
+import ProfilePage from "../../pages/teamLeader/ProfilePage";
+import TeamLeaderParticipantsPage from "../../pages/teamLeader/TeamLeaderParticipantsPage";
+import WorkspacePage from "../../pages/teamLeader/WorkspacePage";
+import SchedulePage from "../../pages/teamLeader/SchedulePage";
 
 export default function AppRouter() {
   return (
@@ -79,14 +91,41 @@ export default function AppRouter() {
         {/* Team Leader Side */}
 
         <Route
-          path={ROUTES.TEAM_LEADER.DASHBOARD}
-          element={
-            <Navigate
-              to={ROUTES.TEAM_LEADER_LOGIN}
-              replace
-            />
-          }
-        />
+          path="/team-leader"
+          element={<TeamLeaderLayout />}
+        >
+          <Route
+            path="dashboard"
+            element={<TeamLeaderDashboardPage />}
+          />
+
+          <Route
+            path="participants"
+            element={<TeamLeaderParticipantsPage />}
+          />
+  
+          <Route
+            path="workspace"
+            element={<WorkspacePage />}
+          />
+
+          <Route
+            path="schedule"
+            element={<SchedulePage />}
+          />
+
+          <Route
+            path="profile"
+            element={<ProfilePage />}
+          />
+
+          <Route
+            path="notifications"
+            element={<NotificationsPage />}
+          />
+
+         
+        </Route>
 
         {/* 404 */}
 

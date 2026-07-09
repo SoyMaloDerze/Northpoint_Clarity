@@ -132,6 +132,66 @@ export const inputFocus = {
   scale: 1.005,
 };
 
+// sidebar items
+export const sidebarItemHover = {
+  x: 2,
+  scale: 1.02,
+  transition: springTransition,
+};
+
+export const sidebarItemTap = {
+  scale: 0.985,
+  transition: springTransition,
+};
+
+export const sidebarToggleHover = {
+  scale: 1.02,
+};
+
+export const sidebarToggleTap = {
+  scale: 0.96,
+};
+
+export const sidebarLabelVariants: Variants = {
+  initial: {
+    opacity: 0,
+  },
+
+  animate: {
+    opacity: 1,
+  },
+
+  exit: {
+    opacity: 0,
+  },
+};
+
+export const sidebarIconVariants: Variants = {
+  initial: {
+    opacity: 0.9,
+    scale: 0.98,
+  },
+
+  animate: {
+    opacity: 1,
+    scale: 1,
+  },
+};
+
+export const sidebarContainerVariants: Variants = {
+  initial: {
+    opacity: 0,
+  },
+
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.03,
+    },
+  },
+};
+
+// modal items
 export const modalVariants: Variants = {
   initial: {
     opacity: 0,

@@ -17,7 +17,7 @@ export default function ParticipantHeader({
   onAction,
 }: ParticipantHeaderProps) {
   return (
-    <section className="flex flex-col gap-6 border-b border-slate-200 pb-6 lg:flex-row lg:items-end lg:justify-between">
+    <section className=" flex-col gap-6 border-b border-slate-200 pb-6 lg:flex-row lg:items-end lg:justify-between">
       {/* Left */}
               
       <div className="flex items-center gap-3">
