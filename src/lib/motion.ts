@@ -132,6 +132,13 @@ export const inputFocus = {
   scale: 1.005,
 };
 
+export const liveIndicator = {
+  scale: [1, 1.15, 1],
+  opacity: [1, 0.65, 1],
+
+  
+};
+
 // sidebar items
 export const sidebarItemHover = {
   x: 2,
