@@ -12,6 +12,13 @@ type AvatarProps = {
   className?: string;
 };
 
+const initialsSize = {
+  sm: "text-xs",
+  md: "text-sm",
+  lg: "text-base",
+  xl: "text-xl",
+};
+
 const sizes = {
   sm: "h-8 w-8",
   md: "h-10 w-10",
@@ -41,7 +48,7 @@ export default function Avatar({
           className="h-full w-full object-cover"
         />
       ) : name ? (
-        <span className="font-semibold">
+        <span className={cn("font-semibold tracking-tight text-slate-700", initialsSize[size])}>
           {name
             .split(" ")
             .map((word) => word[0])
